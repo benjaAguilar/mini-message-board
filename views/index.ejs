@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
     <title>Mini messages!</title>
 </head>
 <body>
-    <h1>Welcome to mini messages!</h1>
-    <div>
+    <header>
+        <h1>Welcome to mini messages!</h1>
+        <button id="new-btn">New Message</button>
+    </header>
+    <div class='msg-box'>
         <h2>Last messages</h2>
         <% msg.map(msg => { %>
-            <div>
-                <h3><%= msg.user %></h3>
-                <p><%= msg.msg %></p>
-                <p><%= msg.added %></p>
-                <p>likes: <%= msg.likes %></p>
-                <button class="like-btn" data-msgId=<%= msg.id %>>like</button>
+            <div class="msg-card">
+                <h3><img src="./account.svg" alt=""><%= msg.user %></h3>
+                <p class="msg"><%= msg.msg %></p>
+                <p class="date"><%= msg.added %></p>
+                <p class="likes"><%= msg.likes %> Likes</p>
+                <button class="like-btn" data-msgId=<%= msg.id %>>Like <img src="./like.svg" alt="" class="heart"></button>
             </div>
         <%})%>
     </div>
     <script>
         const likeBtns = document.querySelectorAll('.like-btn');
+        const newBtn = document.querySelector('#new-btn');
+
+        newBtn.addEventListener('click', () => window.location.href='/new');
 
         likeBtns.forEach(btn => {
             btn.addEventListener('click', () => {
