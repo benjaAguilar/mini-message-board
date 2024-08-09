@@ -30,4 +30,35 @@ router.get('/', (req, res) => {
     res.render('index', {msg: msg})
 });
 
+router.get('/new', (req, res) => {
+    res.render('new');
+});
+
+router.post('/', (req, res) => {
+    const id = req.body.msgId;
+
+    msg.map(msg => {
+        if(msg.id === id){
+            msg.likes++;
+        }
+    });
+
+    res.json({success: true});
+});
+
+router.post('/new', (req, res) => {
+    const message = req.body.message;
+    const user = req.body.user;
+
+    msg.push({
+        id: uuidv4(),
+        msg: message,
+        user: user,
+        added: new Date(),
+        likes: 0
+    })
+
+    res.redirect('/');
+});
+
 module.exports = router;
