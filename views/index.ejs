@@ -13,11 +13,39 @@
             <div>
                 <h3><%= msg.user %></h3>
                 <p><%= msg.msg %></p>
-                <p><%= msg.date %></p>
+                <p><%= msg.added %></p>
                 <p>likes: <%= msg.likes %></p>
-                <button>like</button>
+                <button class="like-btn" data-msgId=<%= msg.id %>>like</button>
             </div>
         <%})%>
     </div>
+    <script>
+        const likeBtns = document.querySelectorAll('.like-btn');
+
+        likeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+            const msgId = btn.getAttribute('data-msgId');
+            console.log(msgId)
+            fetch('/', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({msgId: msgId})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success){
+                    alert('liked!');
+                    location.reload();
+                    return;
+                } 
+
+                alert('error liking msg');
+            })
+            .catch(e => console.error(e));
+        });
+        });
+    </script>
 </body>
 </html>
