@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini messages!</title>
+</head>
+<body>
+    <h1>Welcome to mini messages!</h1>
+    <div>
+        <h2>Last messages</h2>
+        <% msg.map(msg => { %>
+            <div>
+                <h3><%= msg.user %></h3>
+                <p><%= msg.msg %></p>
+                <p><%= msg.date %></p>
+                <p>likes: <%= msg.likes %></p>
+                <button>like</button>
+            </div>
+        <%})%>
+    </div>
+</body>
+</html>
