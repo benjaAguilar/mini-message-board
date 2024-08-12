@@ -15,5 +15,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRoute);
 
-const PORT = 3000;
+const PORT = 8000;
 app.listen(PORT, '0.0.0.0', () => console.log(`server running at  port ${PORT}`));
