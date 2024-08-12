@@ -40,17 +40,17 @@ img{
 .msg-box {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Asegura que el contenido empiece desde arriba */
-    align-items: stretch; /* Asegura que los elementos internos ocupen todo el ancho */
-    overflow-y: auto; /* Utiliza 'auto' en lugar de 'scroll' para ocultar el scrollbar si no es necesario */
+    justify-content: flex-start; 
+    align-items: stretch; 
+    overflow-y: auto; 
     background-color: rebeccapurple;
     border-radius: 25px;
     max-height: 500px;
-    height: 100%; /* Asegura que el contenedor tome toda la altura posible */
+    height: 100%; 
     padding: 2rem;
-    box-sizing: border-box; /* Incluye padding y border en el cálculo del max-height */
+    box-sizing: border-box;
 }
-
+    
 .msg-box::-webkit-scrollbar{
     display: none;
 }
