@@ -3,42 +3,6 @@ const { Router } = require('express');
 const messageController = require('../controllers/messageController');
 const router = Router();
 
-function getDate(){
-    const today = new Date();
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-    const yr = today.getFullYear();
-    const month = today.getMonth();
-    const day = today.getUTCDate();
-    const currentDayOfWeek = daysOfWeek[today.getDay()];
-
-    return `${currentDayOfWeek} ${day} / ${month} / ${yr}`;
-}
-
-const msg = [
-    {
-        id: uuidv4(),
-        msg: 'Another beautiful day in this social media...',
-        user: 'Crow55',
-        added: getDate(),
-        likes: 1,
-    },
-    {
-        id: uuidv4(),
-        msg: 'I seriously think that react.js is god!',
-        user: 'Color',
-        added: getDate(),
-        likes: 3,
-    },
-    {
-        id: uuidv4(),
-        msg: 'Im pickle rick!',
-        user: 'Rick Sanchez',
-        added: getDate(),
-        likes: 20,
-    },
-]
-
 router.get('/', messageController.getIndex);
 
 router.get('/new', (req, res) => {
