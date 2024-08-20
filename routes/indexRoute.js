@@ -1,5 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 const { Router } = require('express');
+const messageController = require('../controllers/messageController');
 const router = Router();
 
 function getDate(){
@@ -8,7 +9,7 @@ function getDate(){
 
     const yr = today.getFullYear();
     const month = today.getMonth();
-    const day = today.getDay();
+    const day = today.getUTCDate();
     const currentDayOfWeek = daysOfWeek[today.getDay()];
 
     return `${currentDayOfWeek} ${day} / ${month} / ${yr}`;
@@ -38,9 +39,7 @@ const msg = [
     },
 ]
 
-router.get('/', (req, res) => {
-    res.render('index', {msg: msg})
-});
+router.get('/', messageController.getIndex);
 
 router.get('/new', (req, res) => {
     res.render('new');
