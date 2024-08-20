@@ -15,9 +15,9 @@
         <h2>Last messages</h2>
         <% msg.map(msg => { %>
             <div class="msg-card">
-                <h3><img src="./account.svg" alt=""><%= msg.user %></h3>
-                <p class="msg"><%= msg.msg %></p>
-                <p class="date"><%= msg.added %></p>
+                <h3><img src="./account.svg" alt=""><%= msg.username %></h3>
+                <p class="msg"><%= msg.message %></p>
+                <p class="date"><%= msg.date %></p>
                 <p class="likes"><%= msg.likes %> Likes</p>
                 <button class="like-btn" data-msgId=<%= msg.id %>>Like <img src="./like.svg" alt="" class="heart"></button>
             </div>
