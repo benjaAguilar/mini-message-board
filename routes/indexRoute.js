@@ -9,31 +9,10 @@ router.get('/new', (req, res) => {
     res.render('new');
 });
 
-router.post('/', (req, res) => {
-    const id = req.body.msgId;
+// likes
+router.post('/', messageController.postUpdateLikes);
 
-    msg.map(msg => {
-        if(msg.id === id){
-            msg.likes++;
-        }
-    });
-
-    res.json({success: true});
-});
-
-router.post('/new', (req, res) => {
-    const message = req.body.message;
-    const user = req.body.user;
-
-    msg.push({
-        id: uuidv4(),
-        msg: message,
-        user: user,
-        added: getDate(),
-        likes: 0
-    })
-
-    res.redirect('/');
-});
+//handle new message post
+router.post('/new', messageController.postMessage);
 
 module.exports = router;
