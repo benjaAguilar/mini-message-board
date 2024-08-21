@@ -1,4 +1,3 @@
-const { v4: uuidv4 } = require('uuid');
 const { Router } = require('express');
 const messageController = require('../controllers/messageController');
 const router = Router();
