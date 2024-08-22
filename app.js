@@ -1,9 +1,7 @@
 const express = require('express');
 const path = require('node:path');
 const app = express();
-require('dotenv').config({
-    path: process.env.NODE_ENV === 'prod' ? '.env.prod' : '.env.dev'
-});
+require('dotenv').config();
 
 const indexRoute = require('./routes/indexRoute');
 
