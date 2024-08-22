@@ -9,8 +9,23 @@
 <body>
     <header>
         <h1>Welcome to mini messages!</h1>
-        <button id="new-btn">New Message</button>
     </header>
+    <div class="toolbar">
+        <form class="sort" action="/sort" method="get">
+            <label for="sorted">
+                Sort by:
+            </label>
+                <select name="sorted" id="sorted">
+                    <option value="likes" selected>Likes</option>
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="name">Name</option>
+                </select>
+            <input type="submit" value="Sort">
+        </form>
+
+        <button id="new-btn">New Message</button>
+    </div>
     <div class='msg-box'>
         <h2>Last messages</h2>
         <% msg.map(msg => { %>
