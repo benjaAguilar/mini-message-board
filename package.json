@@ -4,7 +4,7 @@
   "description": "*TOP task* create a messages board with express and EJS using MVC pattern",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch app.js",
+    "start": "NODE_ENV=prod node app.js",
     "popDB": "node db/populatedb.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

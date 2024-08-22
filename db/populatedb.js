@@ -23,14 +23,18 @@ VALUES
 
 async function main() {
   console.log("seeding...");
-  console.log(process.env.POPULATE_CONNECTION)
-  const client = new Client({
-    connectionString: process.env.POPULATE_CONNECTION,
-  });
-  await client.connect();
-  await client.query(SQL);
-  await client.end();
-  console.log("done");
+  try{
+    const client = new Client({
+      connectionString: process.env.POPULATE_CONNECTION,
+    });
+    await client.connect();
+    await client.query(SQL);
+    await client.end();
+    console.log("done");
+  } catch(e){
+    console.log(e);
+  }
+
 }
 
 main();
