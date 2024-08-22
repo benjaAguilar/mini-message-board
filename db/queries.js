@@ -1,7 +1,9 @@
 const pool = require('./pool');
 
-async function getAllMessages(){
-    const { rows } = await pool.query("SELECT * FROM messages");
+async function getAllMessages(filter){
+    if(!filter) filter = "ORDER BY likes DESC";
+
+    const { rows } = await pool.query(`SELECT * FROM messages ${filter}`);
     return rows;
 }
 
