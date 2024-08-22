@@ -6,8 +6,8 @@
 }
 
 body{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto auto auto;
     justify-content: center;
     align-items: center;
     gap: 1rem;
@@ -49,6 +49,7 @@ img{
     height: 100%; 
     padding: 2rem;
     box-sizing: border-box;
+    max-width: 1200px;
 }
     
 .msg-box::-webkit-scrollbar{
@@ -123,7 +124,7 @@ button:hover, input[type=submit]:hover{
     align-items: center;
 }
 
-form{
+.msgForm{
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -142,4 +143,17 @@ input[type=text]{
     padding: 5px;
     color: #f5f5f5;
     border-radius: 5px;
+}
+
+.sort{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.toolbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
 }
